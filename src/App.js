@@ -35,6 +35,17 @@ const App = () => {
     console.log(e.target.innerHTML);
   };
 
+  const handleDragEnd = (e) => {
+    const listCopy = [...list];
+    const draggingItemContent = listCopy[draggingItem.current];
+    listCopy.splice(draggingItem.current, 1); // draggingItem.current position에서 요소 1개 제거
+    listCopy.splice(dragOverItem.current, 0, draggingItemContent); // draggingItemContent를 dragoverItem position에 추가
+
+    draggingItem.current = null;
+    dragOverItem.current = null;
+    setList(listCopy);
+  };
+
   return (
     <>
       <div style={style}>{textValue}</div>
@@ -44,6 +55,7 @@ const App = () => {
           <h1
             onDragStart={(e) => handleDragStart(e, index)}
             onDragEnter={(e) => handleDragEnter(e, index)}
+            onDragEnd={handleDragEnd}
             key={index}
             draggable
           >
