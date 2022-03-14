@@ -4,6 +4,7 @@ import './App.css';
 
 const App = () => {
   const draggingItem = useRef();
+  const dragOverItem = useRef();
   const [list, setList] = useState([
     'Lotte Giant',
     'Samsung Lions',
@@ -29,13 +30,23 @@ const App = () => {
     console.log(e.target.innerHTML);
   };
 
+  const handleDragEnter = (e, position) => {
+    dragOverItem.current = position;
+    console.log(e.target.innerHTML);
+  };
+
   return (
     <>
       <div style={style}>{textValue}</div>
       <Hello />
       {list &&
         list.map((item, index) => (
-          <h1 key={index} draggable>
+          <h1
+            onDragStart={(e) => handleDragStart(e, index)}
+            onDragEnter={(e) => handleDragEnter(e, index)}
+            key={index}
+            draggable
+          >
             {item}
           </h1>
         ))}
