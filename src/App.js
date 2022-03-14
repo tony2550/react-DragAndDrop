@@ -33,6 +33,15 @@ const App = () => {
   const handleDragEnter = (e, position) => {
     dragOverItem.current = position;
     console.log(e.target.innerHTML);
+    const listCopy = [...list];
+    console.log(draggingItem.current, dragOverItem.current);
+    const draggingItemContent = listCopy[draggingItem.current];
+    listCopy.splice(draggingItem.current, 1); // draggingItem.current position에서 요소 1개 제거
+    listCopy.splice(dragOverItem.current, 0, draggingItemContent); // draggingItemContent를 dragoverItem position에 추가
+
+    draggingItem.current = dragOverItem.current;
+    dragOverItem.current = null;
+    setList(listCopy);
   };
 
   const handleDragEnd = (e) => {
@@ -55,7 +64,7 @@ const App = () => {
           <h1
             onDragStart={(e) => handleDragStart(e, index)}
             onDragEnter={(e) => handleDragEnter(e, index)}
-            onDragEnd={handleDragEnd}
+            onDragOver={(e) => e.preventDefault()}
             key={index}
             draggable
           >
