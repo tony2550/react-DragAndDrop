@@ -7,7 +7,6 @@ body,
 #root {
   width: 100%;
   height: 100%;
-  padding-top: 40px;
 }
 
 h1 {
@@ -19,4 +18,11 @@ h1 {
   margin-left: 30%;
   padding: 10px;
   cursor: pointer;
+}
+
+.navbar {
+  background-color: black;
+  color: aqua;
+  font-size: 30px;
+  padding: 10px;
 }
