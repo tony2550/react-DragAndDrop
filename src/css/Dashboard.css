@@ -1,0 +1,48 @@
+.app_dashboard__dnd-wrapper {
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.app_dashboard__dnd-wrapper > div {
+  width: 20%;
+  background-color: darkgray;
+  height: 23vh;
+}
+
+.app_dashboard__dnd-wrapper > div > div:nth-child(1) {
+  text-align: center;
+  font-size: 15pt;
+  font-weight: 600;
+}
+
+.div_info > ul {
+  margin: 20px 5px;
+  padding: 0px;
+}
+
+.div_info > ul > li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.headerbar-wrapper {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.baritem {
+  width: 17vw;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding: 6px 12px;
+  text-align: center;
+  background-color: black;
+  color: aqua;
+  font-weight: 600;
+}
