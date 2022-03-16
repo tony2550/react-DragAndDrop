@@ -46,3 +46,9 @@
   color: aqua;
   font-weight: 600;
 }
+
+.chartcontainer {
+  width: 100%;
+  height: 20vh;
+  background-color: bisque;
+}
